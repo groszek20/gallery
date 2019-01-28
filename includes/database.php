@@ -3,9 +3,9 @@
 require_once ("new_config.php");
 
 class Database {
-    
+
     public $connection;
-    
+
     function __construct() {
         $this->openConnectionPDO();
     }
@@ -22,5 +22,21 @@ class Database {
             exit("Połączenie nie mogło zostać utworzone");
         }
     }
+
+    public function query($sql) {
+        $result = $this->query($sql);
+        if (!$result) {
+            die("Query Failed");
+        }
+        return $result;
+    }
+
+    private function confirm_query($result) {
+        if (!$result) {
+            die("Query Failed");
+        }
+    }
+
 }
+
 $database = new Database();
