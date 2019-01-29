@@ -23,19 +23,19 @@ class Database {
         }
     }
 
-    public function query($sql) {
-        $result = $this->query($sql);
+    public function queryPDO($sql) {
+        $result = $this->connection->query($sql);
         if (!$result) {
             die("Query Failed");
         }
         return $result;
     }
-
-    private function confirm_query($result) {
-        if (!$result) {
-            die("Query Failed");
-        }
-    }
+//
+//    private function confirm_query($result) {
+//        if (!$result) {
+//            die("Query Failed");
+//        }
+//    }
 
 }
 

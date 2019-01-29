@@ -11,6 +11,9 @@
                 if ($database->connection) {
                     echo 'true';
                 }
+                $sql = "SELECT * FROM users WHERE id=1";
+                $result = $database->queryPDO($sql)->fetch();
+                print_r($result['username']);
                 ?>
             </h1>
             <ol class="breadcrumb">
