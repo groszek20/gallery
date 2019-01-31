@@ -9,11 +9,14 @@
                 <?php
                 
                 if ($database->connection) {
-                    echo 'true';
+                    echo ' true ';
                 }
-                $sql = "SELECT * FROM users WHERE id=1";
-                $result = $database->queryPDO($sql)->fetch();
-                print_r($result['username']);
+                $user = new user();
+                $result = $user->find_all_users();
+                
+                while ($row = $result->fetch()){
+                   echo $row['username'];
+                }
                 ?>
             </h1>
             <ol class="breadcrumb">

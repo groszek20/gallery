@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include '../includes/init.php'; ?>
+<?php include '../includes/init.php'; 
+
+?>
 <html lang="en">
 
 <head>

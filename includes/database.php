@@ -30,12 +30,6 @@ class Database {
         }
         return $result;
     }
-//
-//    private function confirm_query($result) {
-//        if (!$result) {
-//            die("Query Failed");
-//        }
-//    }
 
 }
 
