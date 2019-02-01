@@ -7,13 +7,7 @@
                 Blank Page
                 <small>Subheading</small>
                 <?php
-                
-                if ($database->connection) {
-                    echo ' true ';
-                }
-                $user = new user();
-                $result = $user->find_all_users();
-                
+                $result = User::find_all_users();          
                 while ($row = $result->fetch()){
                    echo $row['username'];
                 }
