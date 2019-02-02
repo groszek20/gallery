@@ -7,10 +7,10 @@
                 Blank Page
                 <small>Subheading</small>
                 <?php
-                $result = User::find_all_users();          
-                while ($row = $result->fetch()){
-                   echo $row['username'];
-                }
+                $user = new User();
+                $found_user = User::find_user_by_id(2);
+                $user->username = $found_user["username"];
+                echo $user->username."<br>"
                 ?>
             </h1>
             <ol class="breadcrumb">
