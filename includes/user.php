@@ -22,14 +22,20 @@ class User {
         return $result_set;
     }
 
-    public static function initialize($found_user) {
+    public static function initialize($records) {
         $the_object = new self;
  
-        $the_object->username = $found_user["username"];
-        $the_object->user_id = $found_user["id"];
-        $the_object->password = $found_user["password"];
-        $the_object->first_name = $found_user["firstname"];
-        $the_object->last_name = $found_user["lastname"];
+//        $the_object->username = $found_user["username"];
+//        $the_object->user_id = $found_user["id"];
+//        $the_object->password = $found_user["password"];
+//        $the_object->first_name = $found_user["firstname"];
+//        $the_object->last_name = $found_user["lastname"];
+        
+        foreach ($records as $attribute => $value) {
+            if($the_object->has_the_attribute($attribute)){
+                
+            }
+        }
         
         return $the_object;
     }
