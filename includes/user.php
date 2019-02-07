@@ -19,7 +19,11 @@ class User {
     private static function find_this_query($sql) {
         global $database;
         $result_set = $database->queryPDO($sql);
-        return $result_set;
+        $object_array = array();
+        while ($row = $result_set->fetch()){
+            $object_array[] = self::initialize($row);
+        }
+        return $object_array;
     }
 
     public static function initialize($records) {
@@ -33,11 +37,16 @@ class User {
         
         foreach ($records as $attribute => $value) {
             if($the_object->has_the_attribute($attribute)){
-                
+                $the_object->$attribute = $value;
             }
         }
         
         return $the_object;
+    }
+    
+    private function has_the_attribute($attribute){
+        $object_properties = get_object_vars($this);
+        return array_key_exists($attribute, $object_properties);
     }
 
 }
